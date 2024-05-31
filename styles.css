@@ -205,6 +205,8 @@ img {
     font-weight: 700;
     background-color: #ffc0cb;
     border-radius: 5px;
+    padding: 6px;
+    /* line-height:30px */
 }
 
 /* Responsive Design */
