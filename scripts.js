@@ -61,3 +61,47 @@ function changeSlide(n) {
   }
   document.getElementById("slideshow-image").src = images[slideIndex];
 }
+
+/////// FOR RSS FEED //////////
+const feedUrl = 'https://afterschool.substack.com/feed';
+
+async function fetchRSS() {
+    try {
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`);
+        const data = await response.json();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data.contents, 'text/xml');
+        const items = xml.querySelectorAll('item');
+        const feedList = document.getElementById('feed-list');
+
+        // Limit to 3 items
+        const limitedItems = Array.from(items).slice(0, 3);
+
+        limitedItems.forEach(item => {
+            const title = item.querySelector('title').textContent;
+            const link = item.querySelector('link').textContent;
+            const pubDate = new Date(item.querySelector('pubDate').textContent).toLocaleDateString();
+
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            const anchor = document.createElement('a');
+            anchor.href = link;
+            anchor.textContent = title;
+            anchor.target = '_blank';
+            titleCell.appendChild(anchor);
+            row.appendChild(titleCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = pubDate;
+            row.appendChild(dateCell);
+
+            feedList.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error fetching the RSS feed:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchRSS);
+
