@@ -44,12 +44,12 @@ window.onresize = function() {
 // });
 
 let slideIndex = 0;
-const images = ["images/maya1.jpg", "images/maya2.jpg", "images/maya3.jpg", "images/maya4.jpg"]; // Array of image paths
+const images = ["images/headshot_2025.jpeg", "images/maya6.jpeg", "images/maya8.jpeg", "images/maya7.jpeg", "images/maya4.jpg"]; // Array of image paths
 
 // Start the slideshow
 let slideshowInterval = setInterval(function() {
   changeSlide(1);
-}, 2000); // Change slides every 2 seconds
+}, 3000); // Change slides every 2 seconds
 
 function changeSlide(n) {
   slideIndex += n;
@@ -105,3 +105,85 @@ async function fetchRSS() {
 
 document.addEventListener('DOMContentLoaded', fetchRSS);
 
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("header.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+      });
+
+    // Determine which project this page represents
+    const projectId = document.body.getAttribute("data-project-id");
+    if (projectId) loadProjectData(projectId);
+  });
+
+//   fetch("project_desciptions.json")
+//   .then(r => r.json())
+//   .then(projects => {
+//     const container = document.getElementById("projects-container");
+//     container.innerHTML = projects.map(p => `
+//       <p class="description-small">
+//       <b style="font-size: 27px;">Description:</b> 
+//         ${p.description}
+//       </p>
+//     `).join("");
+//   });
+
+// function showProject(containerId) {
+//     const projectId = getQueryParam("id");
+//     if (!projectId) return;
+  
+//     fetch("projects.json").then(r => r.json()).then(projects => {
+//       const project = projects.find(p => p.id === projectId);
+//       const container = document.getElementById(containerId);
+  
+//       if (project) {
+//         container.innerHTML = 
+//           <p class="description-small"><b style="font-size: 27px;">Description:</b> 
+//             ${project.description}
+//           </p> 
+//         ;
+//       } else {
+//         container.innerHTML = `<p>Project not found.</p>`;
+//       }
+//     });
+//   }
+
+  function loadProjectData(projectId) {
+    fetch("project_descriptions.json")
+        .then(r => r.json())
+        .then(data => {
+        const project = data[projectId];
+        if (!project) {
+            console.error(`No project found for ID: ${projectId}`);
+            return;
+        }
+        // print(project);
+
+        // Fill in elements by ID (if they exist)
+        // const titleEl = document.getElementById("project-title");
+        const descEl = document.getElementById("project-description");
+        
+        // if (descEl) {
+        //     descEl.innerHTML = 
+        //         <p class="description-small"><b style="font-size: 27px;">Description:</b> 
+        //             ${project.description}
+        //         </p>;
+
+        // }
+        
+
+            // if (titleEl) titleEl.textContent = project.title;
+            // if (descEl) descEl.textContent = project.description;
+
+            if (descEl){
+                descEl.textContent = project.description;
+                // descEl.textContent = <b style="font-size: 27px;">Description:</b> 
+                // ${project.description};
+                
+            } 
+
+
+        })
+        .catch(err => console.error("Error loading project data:", err));
+}
