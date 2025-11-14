@@ -1,8 +1,9 @@
 {
-  "project1": 
-  { "id": 1, "title": "lidar", "description": "Using some previous and applicable work from members of the ARSENL lab at University of Colorado, Boulder, I create a MATLAB simulation to model the expected polarized returns of a LiDAR system scattering off of different surfaces." },
+  "lidar": 
+  {"description": "Using some previous and applicable work from members of the ARSENL lab at University of Colorado, Boulder, I create a MATLAB simulation to model the expected polarized returns of a LiDAR system scattering off of different surfaces." },
   "project2":
-  { "id": 2, "title": "Air Quality Dashboard", "description": "An interactive dashboard that tracks air pollution levels in real time." },
-  "project3":
-  { "id": 3, "title": "Habitat Scoring Model", "description": "A scoring tool that rates potential habitats based on environmental data." }
+  {"description": "An interactive dashboard that tracks air pollution levels in real time." },
+  "aboutme":
+  {"description": "Hi! I'm Maya! I'm an Aerospace Engineer with a BS and MS from CU Boulder. Since completing graduate school in 2024, I've been working for Wildfire Defense Systems as a computer scientist, working on projects ranging from wildfire risk model creation to Azure cloud based devOps. I moved from New Jersey to Colorado in 2018 for school and am still in Denver now. Professionally, I am trained as an Aersopace engineer, but I really excell within software based roles, and I am passionate about making a positive impact with the work that I do. Personally, I enjoy snowboarding, travelling, music, playing sports, and solving puzzles." }
+
 }

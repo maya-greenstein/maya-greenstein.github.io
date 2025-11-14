@@ -343,3 +343,19 @@ td:last-child {
 }
 
 
+.lidar-image-button-container {
+    flex-direction: column;       /* stack vertically */
+    align-items: flex-start;       /* optional: aligns left */
+  }
+
+  .lidar-button-column {
+    width: 100%;                  /* optional: full width on mobile */
+    height: auto;                 /* remove forced height */
+    justify-content: flex-start;  /* normal spacing */
+    gap: 12px;                    /* keeps vertical spacing */
+  }
+
+  .lidar-image {
+    width: 100%;                  /* image becomes responsive */
+    max-width: 350px;             /* optional limit */
+  }
