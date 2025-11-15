@@ -359,3 +359,38 @@ td:last-child {
     width: 100%;                  /* image becomes responsive */
     max-width: 350px;             /* optional limit */
   }
+
+  .lidar-image-button-container {
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    justify-content: center;
+  }
+
+  .lidar-button-column {
+    display: flex; 
+    flex-direction: column; 
+    gap: 50px; 
+    margin-left: 30px;
+  }
+
+  .lidar-image {
+    max-height: 450px; 
+    width: auto;  
+    margin-bottom: 20px; 
+    border: 3px solid black;
+  }
+
+  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+        <img src="images/lidar_plot.jpg" style="max-height: 450px; width: auto;  margin-bottom: 20px; border: 3px solid black; ">
+      
+        <div style="display: flex; flex-direction: column; gap: 50px; margin-left: 30px;">
+          <!-- <button>Top Button</button>
+          <button>bottom Button</button> -->
+
+            <a class="download-button" href="https://github.com/maya-greenstein/lidarPol" target="_blank" rel="noopener noreferrer" style="margin-bottom: 10px;">Link to Github</a>
+            <a class="download-button" href="content/ASEN_6365_Final_V1.pdf" target="_blank" rel="noopener noreferrer">Download PDF &darr;</a>
+            
+          <!-- <button class="bottom-button">Bottom Button</button> -->
+        </div>
+      </div>
