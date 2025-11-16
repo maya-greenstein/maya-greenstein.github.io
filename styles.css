@@ -424,7 +424,7 @@ html{
     gap: 50px;
     align-items: start;                 /* align content at the top */
     max-width: 1500px;
-    margin: 0 50px;
+    margin: 10px 50px;
   }
   
   /* Make the image taller than the paragraph */
