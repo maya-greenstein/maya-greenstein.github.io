@@ -172,10 +172,10 @@ body {
     opacity: 1;
 }
 
-img {
+/* img {
     max-height: 300px;
     width: auto;
-}
+} */
 
 /* Box */
 .box {
@@ -251,9 +251,9 @@ img {
         padding: 20px;
     }
 
-    img {
+    /* img {
         max-height: 200px;
-    }
+    } */
 
     .some-text {
         font-size: 30px;
@@ -417,3 +417,36 @@ html{
 
       }
   } */
+
+  .two-column {
+    display: grid;
+    grid-template-columns: auto auto;    /* left grows, right fits image */
+    gap: 50px;
+    align-items: start;                 /* align content at the top */
+    max-width: 1500px;
+    margin: 0 50px;
+  }
+  
+  /* Make the image taller than the paragraph */
+  .image-col img {
+    height: 500px;      /* <— adjust this for the height you want */
+
+    width: auto;        /* don't stretch horizontally */
+    margin-bottom: 20px;
+    /* object-fit: cover;  crops if needed */
+    /* border-radius: 8px; */
+    border: 2px solid white;
+    /* margin-right: 10px; */
+  }
+  
+  /* Responsive: stack vertically when needed */
+  @media (max-width: 750px) {
+    .two-column {
+      grid-template-columns: 1fr;  /* one column */
+    }
+  
+    .image-col img {
+      width: 100%;        /* full width on mobile */
+      height: auto;       /* keep aspect ratio */
+    }
+  }
